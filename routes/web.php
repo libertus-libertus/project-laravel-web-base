@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\HomeController;
 
 /*
 |--------------------------------------------------------------------------
@@ -13,15 +14,6 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('home');
-});
-
-
-Route::get('/biodata', function () {
-    return view('page.biodata');
-});
-
-Route::get('/post/{nama}', function (string $nama) {
-    return 'Author: '.$nama;
-});
+Route::get('/', [HomeController::class, 'index'])->name('home');
+Route::get('/biodata', [HomeController::class, 'biodata'])->name('biodata');
+Route::post('/send', [HomeController::class, 'send'])->name('send');
