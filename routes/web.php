@@ -14,5 +14,14 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('home');
+});
+
+
+Route::get('/biodata', function () {
+    return view('page.biodata');
+});
+
+Route::get('/post/{nama}', function (string $nama) {
+    return 'Author: '.$nama;
 });
